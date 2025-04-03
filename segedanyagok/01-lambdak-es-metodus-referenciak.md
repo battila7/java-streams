@@ -1,6 +1,15 @@
 # Lambdák és metódusreferenciák
 
-* [Angol nyelvű hivatalos útmutató: Writing Your First Lambda Expression](https://dev.java/learn/lambdas/first-lambdas/)
+* [Ön itt áll](#ön-itt-áll)
+* [Miért van szükség lambdákra?](#miért-van-szükség-lambdákra)
+* [Szervezzük ki a viselkedést](#szervezzük-ki-a-viselkedést)
+* [Névtelen osztályok](#névtelen-osztályok)
+* [Közjáték: Funkcionális interfészek](#közjáték-funkcionális-interfészek)
+* [Lambdák](#lambdák)
+  * [Szintaktikai kisokos](#szintaktikai-kisokos)
+  * [Beépített funkcionális interfészek](#beépített-funkcionális-interfészek)
+* [Metódusreferenciák](#metódusreferenciák)
+  * [Referenciák típusai, használata](#referenciák-típusai-használata)
 
 ## Ön itt áll
 
@@ -120,11 +129,14 @@ Vegyük észre, hogy a felesleges, logikát körülölelő kód jelentősen lecs
 
 ## Névtelen osztályok
 
+Ajánlott olvasmány:
+* [Anonymous Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html)
+
 Itt siet segítségünkre a Java nyelv egy régi, jól ismert eszköze.
 
 Ha jobban belegondolunk, akkor rájöhetünk, hogy a "Mi történjen, ha rákattintanak a rendelés-feladó gombra?" kérdésre válaszoló logikát csak *pontosan egy* helyen szeretnénk használni: a rendelés-feladó gombban. Ez a logika lényegében eldobható, csupán egy helyen van haszna, azaz nem fogunk a kódbázis mindenféle pontján `PlaceOrderOnClickHandler` példányokat létrehozni.
 
-Hogyan tudnánk egy ilyen eldobható csomagba belerakni a logikánkat? Itt jönnek a képbe a [névtelen osztályok](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html). Ezek segítségével (szinte) bárhol a kódunkban egyszeri, eldobható absztrakt osztály- és interfész-implementációkat készíthetünk, azonnal példányosítva is azokat.
+Hogyan tudnánk egy ilyen eldobható csomagba belerakni a logikánkat? Itt jönnek a képbe a névtelen osztályok. Ezek segítségével (szinte) bárhol a kódunkban egyszeri, eldobható absztrakt osztály- és interfész-implementációkat készíthetünk, azonnal példányosítva is azokat.
 
 Tegyünk is egy próbát!
 
@@ -145,6 +157,9 @@ A fenti kód lényegesen tömörebb, mint az eddigiek. Nincsen szükség nevesí
 Ha Java 7-et vagy régebbi kiadást használnánk, akkor ez a dokumentum itt véget is érne, hiszen ennél elegánsabb megoldást nem tudnánk készíteni. Szerencsére, mi már a jövőben élünk, így birtokunkban vannak a Java 8 adata szuperképességek! Lássuk, hogyan tehetjük a fenti kódot még olvashatóbbá és egyszerűbbé!
 
 ## Közjáték: Funkcionális interfészek
+
+Ajánlott olvasmány:
+* [java.util.function csomag](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/function/package-summary.html)
 
 A funkcionális interfészek (*functional interface*) olyan interfészek, melyek egyetlen abstract (azaz, implementáció nélküli) metódussal rendelkeznek. Ilyen például a jól ismert [java.lang.Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html):
 
@@ -167,6 +182,9 @@ Nevezik őket SAM (*single abstract method*) interfészeknek is, hiszen lényeg�
 Bevezettünk egy újabb, annyira nem is egyszerű fogalmat, de miért? Lapozzunk is tovább!
 
 ## Lambdák
+
+Ajánlott olvasmány:
+* [Writin Your First Lambda Expression](https://dev.java/learn/lambdas/first-lambdas/)
 
 Frappánsan megválaszolva az előző rész lezárását: A funkcionális interfészekre azért van szükség, mert a lambda kifejezések lényegében mind névtelen funkcionális interfész-megvalósítások.
 
@@ -313,7 +331,11 @@ Ezek közül néhány gyakrabban használt interfész az alábbi:
 
 ## Metódusreferenciák
 
-Ha a lambdák a hab, akkor a metódusreferenciák ([method references](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html)) a cseresznye!
+Ajánlott olvasmány:
+* [Writing Lambda Expressions as Method References](https://dev.java/learn/lambdas/method-references/)
+* [Method References](https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html)
+
+Ha a lambdák a hab, akkor a metódusreferenciák a cseresznye!
 
 Nagyon gyakran előfordul, hogy a lambdáink nem is rendelkeznek saját logikával, hanem csak meghívnak egy másik metódust. Például igen gyakori az alábbi:
 
@@ -350,7 +372,7 @@ De mégis milyen metódusokra tudunk hivatkozni és hogyan?
 
 Haladjunk az egyszerűtől a bonyolultabb esetekig!
 
-* Osztály statikus metódusa
+* Osztály statikus metódusa (*static*)
   * A legegyszerűbb ha, egy statikus (*static*) metódusra szeretnénk hivatkozni, melyet `Osztály::statikusMetódus` formában tehetünk meg. A metódus olyan funkcionális interfészeket tud megvalósítani, melyek absztrakt metódusa illeszthető a saját paramétereire és visszatérési típusára. Például:
   ```Java
   class App {
@@ -370,8 +392,8 @@ Haladjunk az egyszerűtől a bonyolultabb esetekig!
     }
   }
   ```
-* Adott példány példányszintű metódusa
-  * Ha egy osztályból rendelkezünk egy példánnyal, akkor annak is meghivatkozhatjuk egy metódusát `példány::metódus` formában. A metódus olyan funkcionális interfészeket tud megvalósítani, melyek absztrakt metódusa illeszthető a saját paramétereire és visszatérési típusára. Például:
+* Adott példány példányszintű metódusa (*bound*)
+  * Ha egy osztályból (vagy rekordból) rendelkezünk egy példánnyal, akkor annak is meghivatkozhatjuk egy metódusát `példány::metódus` formában. A metódus olyan funkcionális interfészeket tud megvalósítani, melyek absztrakt metódusa illeszthető a saját paramétereire és visszatérési típusára. Például:
   ```Java
   class Printer {
     public void print(String str) {
@@ -405,8 +427,8 @@ Haladjunk az egyszerűtől a bonyolultabb esetekig!
     .filter("world"::equals)
     .toList();
   ```
-* Osztály példányszintű metódusa
-  * Akkor is meghívhatunk példányszintű metódust, ha nem rendelkezünk példánnyal az osztályból, mégpedig `Osztály::példányMetódus` módon. Ekkor azonban el kell képzelnünk, hogy a hívott metódus első paramétere az osztály egy példánya. Azaz:
+* Típus példányszintű metódusa (*unbound*)
+  * Akkor is meghívhatunk példányszintű metódust, ha nem rendelkezünk példánnyal az osztályból (vagy rekordból), mégpedig `Osztály::példányMetódus` módon. Ekkor azonban el kell képzelnünk, hogy a hívott metódus első paramétere az osztály egy példánya. Azaz:
   ```Java
   record Country(String capital) {}
 
@@ -428,7 +450,7 @@ Haladjunk az egyszerűtől a bonyolultabb esetekig!
       }
   }
   ```
-* Osztály konstruktora
+* Osztály konstruktora (*constructor*)
   * Az `Osztály::new` formában egy osztály konstruktorára hivatkozhatunk. Ekkor a megvalósított funkcionális interfész paramétereinek a konstruktor paramétereire kell illeszkednie, míg a visszatérési érték típusa nyilván maga az osztály lesz. Például:
   ```Java
   record Country(String capital) {}
