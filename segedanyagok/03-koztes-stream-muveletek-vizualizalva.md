@@ -251,7 +251,7 @@ Visszaad egy olyan Streamet, mely rendezve tartalmazza ennek a Streamnek az elem
 
 Csak akkor tudja végrehajtani a rendezést, ha a Stream rendezhető elemeket tartalmaz (azaz, az elemek típusa implementálja a `Comparable` interfészt).
 
-A rendezés az alapértelmezett sorrend (természetes vagy *natural order*) szerint történik. Ha egyedi feltételek szerint akarunk rendezni, akkor használjuk a `sorted(comparator)` metódust.
+A rendezés a természetes sorrend (*natural order*) szerint történik (amelyet a rendezett típus `compareTo` metódusa definiál). Ha egyedi feltételek szerint akarunk rendezni, akkor használjuk a `sorted(comparator)` metódust.
 
 ```Java
 List.of("b", "c", "a")
@@ -268,6 +268,7 @@ List.of("b", "c", "a")
 ### sorted(comparator)
 
 * [JavaDoc](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html#sorted(java.util.Comparator))
+* [Összehasonlítás és rendezés](./02-osszehasonlitas-es-rendezes.md)
 
 Visszaad egy olyan Streamet, mely rendezve tartalmazza ennek a Streamnek az elemeit.
 
