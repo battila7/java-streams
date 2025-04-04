@@ -46,6 +46,7 @@ Ha a fenti kérdést meg tudjuk válaszolni, akkor máris használhatjuk a Java 
   * Pozitív értéket ad vissza, ha ez a példány (`this`) nagyobb, mint, amihez hasonlítjuk (`o`)
   * Végül, nullát ad vissza, ha a két példány a sorrend szerint azonos. 
 
+Ha egy típus megvalósítja a `Comparable` interfészt, akkor az így adott rendezést nevezzük természetes rendezésnek (*natural order*).
 
 Ha mi terület szerint szeretnénk növekvő sorrendbe rendezni, akkor az implementációnk a következő módon alakulhat:
 ```Java

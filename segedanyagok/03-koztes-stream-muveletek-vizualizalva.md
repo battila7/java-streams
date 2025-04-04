@@ -37,7 +37,7 @@ Vágjunk is bele!
 
 ### Marble diagrams
 
-A vizualizációkhoz úgynevezett *marble diagram*okat fogunk használni, amit magyarra talán *golyódiagram*ként fordíthatunk (hiszen a *marble* itt nem az anyagot, hanem a kis golyókat, golyóbisokat jelenti).
+A vizualizációkhoz úgynevezett *marble diagram*okat fogunk használni, amit magyarra talán *golyódiagram*ként fordíthatunk (hiszen a *marble* itt nem az anyagot, hanem az üveggolyókat jelenti).
 
 > [!TIP]
 > A golyódiagramokat a reaktív programozás tette népszerűvé; előszeretettel használták olyan eszközök, mint például a JavaScriptben készült RxJS könyvtár. Érdemes megnézni az [RxMarbles](https://rxmarbles.com/) oldalt, mely szerkeszthető RxJS diagramokat tartalmaz.
@@ -147,7 +147,7 @@ List.of("a", "aa", "aaa")
 
 * [JavaDoc](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/Stream.html#flatMap(java.util.function.Function))
 
-Visszaad egy olyan Streamet, mely a `mapper` által visszaadott Streamek elemeit tartalmazza.
+Visszaad egy olyan Streamet, mely a `mapper` által visszaadott Streamek elemeit tartalmazza. Lényegében egymás után fűzi a kapott Streameket (konkatenálja őket), behelyettesítve minden Streamet annak elemeivel.
 
 Azaz, a `mapper` az eredeti Streamünk elemeiből Streameket kell, hogy képezzen.
 
