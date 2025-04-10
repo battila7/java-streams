@@ -1,5 +1,6 @@
 # Köztes Stream-műveletek - Vizualizálva
 
+* [Terminális vs. köztes](#terminális-vs-köztes)
 * [A vizualizációkról](#a-vizualizációkról)
   * [Marble diagrams](#marble-diagrams)
   * [Hogyan jeleníthetjük meg a műveleteket?](#hogyan-jeleníthetjük-meg-a-műveleteket)
@@ -16,6 +17,13 @@
   * [sorted(comparator)](#sortedcomparator)
 
 Ez a dokumentum egy vizualizált gyorstalpaló, mely a leggyakoribb köztes Stream-műveletek (*intermediate operation*) megértését szeretné elősegíteni. Vágjunk is bele!
+
+## Terminális vs. köztes
+
+A Stream-műveletek az alábbi két csoportba sorolhatók:
+- A *köztes* műveletek (*intermediate operation*) egy új Streamet adnak vissza. Ezeket használhatjuk arra, hogy továbbfűzzük a csővezetékeinket, újabb és újabb műveleteket végezve az elemeken. Ilyen műveletek például a `filter` vagy a `map`.
+- A terminális műveletek ezzel szemben a csővezetékeink lezárásául szolgálnak, hiszen vagy valamilyen mellékhatással járhatnak (azaz, `void` visszatérési értékűek), vagy pedig Stream-től különböző értéket adnak vissza (például egy `List` példányt). Ilyen műveletek például a `forEach` vagy a `toList`.
+  - A [Terminális Stream-műveletek](./04-terminalis-stream-muveletek.md) dokumentum a leggyakoribb terminális műveletek összefoglalását tartalmazza.
 
 ## A vizualizációkról
 
