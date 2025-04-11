@@ -24,7 +24,7 @@
   - [Többszintű redukciót támogató Collectorok](#többszintű-redukciót-támogató-collectorok)
   - [Zárszó: A kész telefonkönyv](#zárszó-a-kész-telefonkönyv)
 
-Ez a dokumentum egy vizualizált gyorstalpaló, mely a leggyakoribb Collector-implementációk megértését szeretné elősegíteni.
+Ez a dokumentum egy gyorstalpaló, mely a leggyakoribb Collector-implementációk megértését szeretné elősegíteni.
 
 ## Bevezetés
 
