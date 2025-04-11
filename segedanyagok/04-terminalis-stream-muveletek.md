@@ -18,7 +18,7 @@
   - [count()](#count)
 - [Összegyűjtés](#összegyűjtés)
   - [toList()](#tolist)
-  - [collect(collecgtor)](#collectcollector)
+  - [collect(collector)](#collectcollector)
 
 Ez a dokumentum egy gyorstalpaló, mely a leggyakoribb terminális Stream-műveletek (*terminal operation*) megértését szeretné elősegíteni. Vágjunk is bele!
 
@@ -261,4 +261,4 @@ List.of("a", "bb", "ccc")
 
 A megadott `Collector` (vagy gyűjtő) alkalmazásával végez [módosítható redukciót](https://docs.oracle.com/en/java/javase/24/docs/api/java.base/java/util/stream/package-summary.html#MutableReduction).
 
-Vizualizációért és példákért, lásd: [Collectors - Vizualizálva](./05-collectors-vizualizalva.md)
+Részéletes ismertetésért, lásd: [Collectors](./05-collectors.md)
