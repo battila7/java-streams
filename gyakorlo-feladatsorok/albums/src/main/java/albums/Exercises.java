@@ -38,5 +38,10 @@ public interface Exercises {
      * Visszaad egy olyan Mapet, mely az albumok címeihez a rajtuk található dalok számát
      * rendeli.
      */
-    Map<String, Long> getTheNumberOfSongsOnEachAlbum();
+    Map<String, Integer> getTheNumberOfSongsOnEachAlbum();
+
+    /**
+     * Visszaad egy olyan Mapet, mely az előadók neveihez rendeli az albumaik számát.
+     */
+    Map<String, Long> getTheNumberOfAlbumsByArtistName();
 }

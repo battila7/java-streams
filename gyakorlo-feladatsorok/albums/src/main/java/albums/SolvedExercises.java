@@ -19,6 +19,7 @@ public class SolvedExercises implements Exercises {
         System.out.println(exercises.getTheNumberOfSongsOnEachBeatlesAlbum());
         exercises.printEachArtistsInstagramHandle();
         System.out.println(exercises.getTheNumberOfSongsOnEachAlbum());
+        System.out.println(exercises.getTheNumberOfAlbumsByArtistName());
     }
 
     @Override
@@ -66,12 +67,24 @@ public class SolvedExercises implements Exercises {
     }
 
     @Override
-    public Map<String, Long> getTheNumberOfSongsOnEachAlbum() {
+    public Map<String, Integer> getTheNumberOfSongsOnEachAlbum() {
+        return new AlbumRepository().getAllAlbums()
+                .stream()
+                .collect(
+                        Collectors.toMap(
+                                Album::title,
+                                album -> album.songs().size()
+                        )
+                );
+    }
+
+    @Override
+    public Map<String, Long> getTheNumberOfAlbumsByArtistName() {
         return new AlbumRepository().getAllAlbums()
                 .stream()
                 .collect(
                         Collectors.groupingBy(
-                                Album::title,
+                                album -> album.artist().name(),
                                 Collectors.counting()
                         )
                 );
